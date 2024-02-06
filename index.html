@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitCoffeeDumper</title>
+<meta name="description" content="Dump .git files online!">
+    <meta name="keywords" content="Flask, Git, GitHub, Python, Web Development">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script>
+    function processURL() {
+        // Show processing message
+        document.getElementById("processingMessage").innerText = "Processing...";
+        
+        var url = document.getElementById("gitUrl").value.trim(); // Trim any leading/trailing spaces
+        // Check if the URL starts with 'http://' or 'https://', if not, prepend 'https://'
+        if (!url.match(/^https?:\/\//i)) {
+            url = 'https://' + url;
+        }
+        
+        fetch('http://localhost:5000/process_git_url?url=' + encodeURIComponent(url))
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data); // Log the response data for debugging
+            if (data.status === "success") {
+                document.getElementById("downloadLink").innerHTML = "<a href='" + data.download + "' download>Download</a>";
+                document.getElementById("password").innerText = "Password: " + data.password;
+                
+                // Add click event listener to copy password to clipboard
+                document.getElementById("password").addEventListener("click", function() {
+                    var password = data.password;
+                    navigator.clipboard.writeText(password).then(function() {
+                        alert("Password copied to clipboard: " + password);
+                    }, function(err) {
+                        console.error('Error copying password to clipboard: ', err);
+                        alert("Failed to copy password to clipboard. Please try again.");
+                    });
+                });
+            } else {
+                document.getElementById("downloadLink").innerText = "Error: Failed to process URL";
+                document.getElementById("password").innerText = "";
+            }
+            // Hide processing message after processing
+            document.getElementById("processingMessage").innerText = "";
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById("downloadLink").innerText = "Error: Failed to process URL";
+            document.getElementById("password").innerText = "";
+            // Hide processing message in case of error
+            document.getElementById("processingMessage").innerText = "";
+        });
+    }
+</script>
+
+</head>
+<body>
+    <h1>GitCoffeeDumper</h1>
+    <div>
+        <input type="text" id="gitUrl" name="gitUrl" placeholder="Your git url goes here :3">
+        <button onclick="processURL()">Download</button>
+    </div>
+    <div>
+        <p id="processingMessage"></p> <!-- Processing message -->
+        <p id="downloadLink"></p>
+        <p id="password" style="cursor: pointer;"></p> <!-- Password with pointer cursor -->
+    </div>
+</body>
+</html>
