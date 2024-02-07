@@ -61,5 +61,3 @@ GitCoffeeDumper comes with a simple and intuitive web user interface (UI) for co
 ## License
 
 This project is licensed under the GPL 3.0 License - see the [LICENSE](https://github.com/therealmrawsky/GitDumper-web?tab=GPL-3.0-1-ov-file#readme) file for details.
-
-Feel free to customize this README to include more detailed information about your project, installation instructions, usage examples, and any other relevant details
