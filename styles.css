@@ -35,3 +35,16 @@ button{
     border-color: #FDF0D1;
     color: #FDF0D1;
 }
+.bentobox{
+    border-radius: 5rem;
+    border-width: 0.5em;
+    color: #FDF0D1;
+    
+    
+}
+.container{
+    
+    position: absolute;
+    top: 30%; right: 50%;
+    transform: translate(50%,-50%)
+}
