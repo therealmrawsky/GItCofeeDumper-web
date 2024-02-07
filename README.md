@@ -40,7 +40,7 @@ Replace <git_url> with the URL of the Git repository you want to process.
     Requests
 ## Web User Interface
 
-GitCoffeeDumper comes with a simple and intuitive web user interface (UI) for conveniently dumping .git files online. The UI allows users to easily process Git repository URLs and download the contents as a password-protected zip file.
+GitDumper comes with a simple and intuitive web user interface (UI) for conveniently dumping .git files online. The UI allows users to easily process Git repository URLs and download the contents as a password-protected zip file.
 
 ### Features
 
