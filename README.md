@@ -17,6 +17,7 @@ API Endpoint
 You can also use the provided API endpoint to programmatically process Git URLs:
 
 `curl -X GET "http://localhost:5000/process_git_url?url=<git_url>"`
+
 Replace <git_url> with the URL of the Git repository you want to process.
 ## Setup
 
