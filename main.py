@@ -19,6 +19,10 @@ def download_git_contents(url):
     try:
         temp_dir = tempfile.mkdtemp()
         subprocess.run(['git-dumper', url, temp_dir])
+        
+        # Execute the extractor.sh script after git-dumper
+        subprocess.run(['bash', 'extractor.sh', temp_dir, temp_dir])
+        
         git_folder_path = os.path.join(temp_dir, '.git')
         if os.path.exists(git_folder_path):
             return temp_dir
@@ -27,6 +31,7 @@ def download_git_contents(url):
             return None
     except Exception as e:
         return None
+
         
 
 
