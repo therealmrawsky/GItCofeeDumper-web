@@ -23,8 +23,11 @@ Replace <git_url> with the URL of the Git repository you want to process.
    Clone this repository to your local machine.
    
    Install the required dependencies using.
+   
     `pip install -r requirements.txt`
+   
    Run the Flask application using.
+   
    `python main.py`
    
    Access the application at http://localhost:5000.
