@@ -23,6 +23,7 @@ Replace <git_url> with the URL of the Git repository you want to process.
 
    Clone this repository to your local machine.
    Install git-dumper using.
+
 `pip install git-dumper`
    
    Install the required dependencies using.
