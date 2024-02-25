@@ -2,7 +2,7 @@
 # GitDumper-web
 
 GitDumper is a Flask application that allows you to download the contents of a Git repository as a password-protected zip file via transfer.sh. It's a simple tool for securely sharing Git repository contents.
-Features
+## Features
 
    -	Download the contents of a Git repository.
    -	Password protect the downloaded contents.
@@ -22,6 +22,9 @@ Replace <git_url> with the URL of the Git repository you want to process.
 ## Setup
 
    Clone this repository to your local machine.
+   Install git-dumper using.
+
+`pip install git-dumper`
    
    Install the required dependencies using.
    
@@ -39,8 +42,8 @@ Replace <git_url> with the URL of the Git repository you want to process.
     Flask-CORS
     Requests
 ## Web User Interface
-
-GitCoffeeDumper comes with a simple and intuitive web user interface (UI) for conveniently dumping .git files online. The UI allows users to easily process Git repository URLs and download the contents as a password-protected zip file.
+[Try it out!](https://mrawsky.dev/git-dumper/)
+GitDumper comes with a simple and intuitive web user interface (UI) for conveniently dumping .git files online. The UI allows users to easily process Git repository URLs and download the contents as a password-protected zip file.
 
 ### Features
 
